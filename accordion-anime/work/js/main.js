@@ -1,18 +1,20 @@
-const items = document.querySelectorAll(".list-item");
 
-items.forEach((item) => {
-  const content = item.querySelector(".list-content");
+const liItems = document.querySelectorAll(".list-item");
 
-  item.addEventListener("click", () => {
-    const isOpen = item.classList.contains("active");
+liItems.forEach((liItem) => {
+  const inner = liItem.querySelector(".list-content");
 
-    if (isOpen) {
-      content.style.height = "0px";
-      item.classList.remove("active");
-    } else {
-      const contentHeight = content.scrollHeight;
-      content.style.height = contentHeight + "px";
-      item.classList.add("active");
+  liItem.addEventListener("click", () => {
+    const open = liItem.classList.contains("active");
+
+    if (open){
+      inner.style.height = "0px";
+      liItem.classList.remove("active");
+    }
+    else {
+      const innerHeight = inner.scrollHeight;
+      inner.style.height = innerHeight + "px";
+      liItem.classList.add("active");
     }
   });
 });
