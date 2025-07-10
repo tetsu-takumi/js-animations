@@ -1,20 +1,19 @@
+const listItems = document.querySelectorAll(".list-item");
+listItems.forEach((item) => {
+  const inner = item.querySelector(".list-content");
 
-const liItems = document.querySelectorAll(".list-item");
+  item.addEventListener("click", () => {
+    const open = item.classList.contains("active");
 
-liItems.forEach((liItem) => {
-  const inner = liItem.querySelector(".list-content");
-
-  liItem.addEventListener("click", () => {
-    const open = liItem.classList.contains("active");
-
-    if (open){
+    if (open) {
       inner.style.height = "0px";
-      liItem.classList.remove("active");
+      item.classList.remove("active");
     }
-    else {
+
+  else {
       const innerHeight = inner.scrollHeight;
       inner.style.height = innerHeight + "px";
-      liItem.classList.add("active");
+      item.classList.add("active");
     }
   });
 });

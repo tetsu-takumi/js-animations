@@ -1,17 +1,16 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("displayed");
+document.addEventListener("DOMContentLoaded",() => {
+  const see = new IntersectionObserver((inObjects) => {
+    inObjects.forEach((inObject) => {
+      if (inObject.isIntersecting) {
+        inObject.target.classList.add("displayed");
       } else {
-        entry.target.classList.remove("displayed");
+        inObject.target.classList.remove("displayed");
       }
     });
-  }, {
-    threshold: 1,
-  });
-
+  },{
+    threshold: 1,});
+  
   document.querySelectorAll(".box").forEach((box) => {
-    observer.observe(box);
+    see.observe(box);
   });
 });
